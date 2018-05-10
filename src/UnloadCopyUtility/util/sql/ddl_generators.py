@@ -69,7 +69,7 @@ class SchemaDDLHelper(DDLHelper):
 
 class TableDDLHelper(DDLHelper):
     def __init__(self):
-        view_start = 'CREATE OR REPLACE VIEW admin.v_generate_tbl_ddl AS '
+        view_start = 'CREATE OR REPLACE VIEW admin.v_generate_redshift_tbl_ddl AS '
         DDLHelper.__init__(self, config_parameters['locationGenerateTableDDLView'], view_start)
 
     # noinspection PyPep8Naming
@@ -152,7 +152,7 @@ class DDLTransformer:
             new_schema_name=None):
         """
         Get ddl but adapt it to create a relation with different name but same structure
-        :param ddl:  ddl from admin.v_generate_tbl_ddl view
+        :param ddl:  ddl from admin.v_generate_redshift_tbl_ddl view
         :param new_table_name: if None don't replace table_name
         :param new_schema_name: if None don't replace schema_name
         :return:
@@ -233,7 +233,7 @@ class TableDDLTransformer(DDLTransformer):
     def get_create_table_ddl_for_different_relation(ddl, new_table_name=None, new_schema_name=None):
         """
         Get ddl but adapt it to create a relation with different name but same structure
-        :param ddl:  ddl from admin.v_generate_tbl_ddl view
+        :param ddl:  ddl from admin.v_generate_redshift_tbl_ddl view
         :param new_table_name: if None don't replace table_name
         :param new_schema_name: if None don't replace schema_name
         :return:
