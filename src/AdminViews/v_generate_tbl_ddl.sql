@@ -1,4 +1,4 @@
---DROP VIEW admin.v_generate_tbl_ddl;
+--DROP VIEW admin.v_generate_redshift_tbl_ddl;
 /**********************************************************************************************
 Purpose: View to get the DDL for a table.  This will contain the distkey, sortkey, constraints,
          not null, defaults, etc.
@@ -43,7 +43,7 @@ History:
 2017-05-03 pvbouwel Change table & schemaname of Foreign key constraints to allow for filters
 2018-01-15 pvbouwel Add QUOTE_IDENT for identifiers (schema,table and column names)
 **********************************************************************************************/
-CREATE OR REPLACE VIEW admin.v_generate_tbl_ddl
+CREATE OR REPLACE VIEW admin.v_generate_redshift_tbl_ddl
 AS
 SELECT
  REGEXP_REPLACE (schemaname, '^zzzzzzzz', '') AS schemaname
